@@ -83,6 +83,28 @@ LinkedList.prototype.removeTail = function() {
   return this;
 };
 
+// Remove element by target:
+LinkedList.prototype.removeElement = function(target) {
+  var currentNode = this.head;
+
+  if (target === this.head.value) {
+    this.removeHead();
+  }
+
+  if (target === this.tail.value) {
+    this.removeTail();
+  }
+
+  while (currentNode.next) {
+    if (currentNode.next.value === target) {
+      currentNode.next = currentNode.next.next;
+    }
+    currentNode = currentNode.next;
+  }
+
+  return this;
+};
+
 // Node constructor:
 var Node = function(str) {
   this.value = str;
