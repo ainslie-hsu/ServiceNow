@@ -69,6 +69,20 @@ LinkedList.prototype.removeHead = function() {
   return this;
 };
 
+// Remove from tail:
+LinkedList.prototype.removeTail = function() {
+  var currentNode = this.head;
+
+  while(currentNode.next.next) {
+    currentNode = currentNode.next;
+  }
+
+  this.tail = currentNode;
+  this.tail.next = null;
+
+  return this;
+};
+
 // Node constructor:
 var Node = function(str) {
   this.value = str;
