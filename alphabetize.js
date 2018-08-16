@@ -17,7 +17,7 @@ var assertEqual = function(actual, expected, testName) {
   if (actual === expected) {
     console.log('PASSED [' + testName + ']');
   } else {
-      console.log('FAILED [' + testName + '] expected: ' + expected + '; but got: ' + actual);
+    console.log('FAILED [' + testName + '] expected: ' + expected + '; but got: ' + actual);
   }
 }
 

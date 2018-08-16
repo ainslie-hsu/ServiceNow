@@ -110,3 +110,73 @@ var Node = function(str) {
   this.value = str;
   this.next = null;
 };
+
+// TESTS:
+
+var assertEqual = function(actual, expected, testName) {
+  var actual = JSON.stringify(actual);
+  var expected = JSON.stringify(expected);
+
+  if (actual === expected) {
+    console.log('PASSED [' + testName + ']');
+  } else {
+    console.log('FAILED [' + testName + '] expected: ' + expected + '; but got: ' + actual);
+  }
+}
+
+// Test addToHead:
+var linkedList = new LinkedList();
+linkedList.addToHead('one');
+
+var actual = linkedList.head.value;
+var expected = 'one';
+
+assertEqual(actual, expected, 'addToHead');
+
+// Test addToHead again:
+linkedList.addToHead('two');
+
+var actual = linkedList.head.value;
+var expected = 'two';
+
+assertEqual(actual, expected, 'addToHead');
+
+// Test addToTail:
+linkedList.addToTail('three');
+
+var actual = linkedList.tail.value;
+var expected = 'three';
+
+assertEqual(actual, expected, 'addToTail');
+
+// Test appendToElement:
+linkedList.appendToElement('two', 'four');
+
+var actual = linkedList.head.next.value;
+var expected = 'four';
+
+assertEqual(actual, expected, 'appendToElement');
+
+// Test removeHead
+linkedList.removeHead();
+
+var actual = linkedList.head.value;
+var expected = 'four';
+
+assertEqual(actual, expected, 'removeHead');
+
+// Test removeTail
+linkedList.removeTail();
+
+var actual = linkedList.tail.value;
+var expected = 'one';
+
+assertEqual(actual, expected, 'removeTail');
+
+// Test removeElement
+linkedList.removeElement('four');
+
+var actual = linkedList.tail.value;
+var expected = 'one';
+
+assertEqual(actual, expected, 'removeElement');
