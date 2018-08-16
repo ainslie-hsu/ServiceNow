@@ -38,6 +38,26 @@ LinkedList.prototype.addToTail = function(str) {
   return this;
 };
 
+// Append node to target element
+LinkedList.prototype.appendToElement = function(target, str) {
+  var newNode = new Node(str);
+  var currentNode = this.head;
+
+  if (target === this.tail.value) {
+    this.addToTail(str);
+  }
+
+  while (currentNode) {
+    if (currentNode.value === target) {
+      newNode.next = currentNode.next;
+      currentNode.next = newNode;
+    }
+    currentNode = currentNode.next;
+  }
+
+  return this;
+};
+
 // Node constructor:
 var Node = function(str) {
   this.value = str;
