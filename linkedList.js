@@ -58,6 +58,17 @@ LinkedList.prototype.appendToElement = function(target, str) {
   return this;
 };
 
+// Remove from head:
+LinkedList.prototype.removeHead = function() {
+  if (!this.head) {
+    return null;
+  } else {
+  this.head = this.head.next;
+  }
+
+  return this;
+};
+
 // Node constructor:
 var Node = function(str) {
   this.value = str;
